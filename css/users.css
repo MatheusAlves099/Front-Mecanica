@@ -94,15 +94,15 @@
 .list-title{
     display: flex;
     justify-content: space-around;
-    align-items: center;
     font-weight: 700;
     border-bottom: 1px solid #000000;
     font-size: 1.8rem;
 }
 .list-content{
     display: flex;
-    height: 64px;
+    width: 100%;
     justify-content: space-around;
+    height: 64px;
     align-items: center;
     font-weight: 500;
     border-bottom: 1px solid #000000;
@@ -401,11 +401,5 @@ span {
     }
     .buttons-container img{
         width: 24px;
-    }
-    .text-content-email {
-        display: none;
-    }
-    .text-title-email {
-        display: none;
     }
 }

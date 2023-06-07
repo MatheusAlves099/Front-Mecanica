@@ -2,6 +2,9 @@
 
 import { carregarCardCurso } from "./course.js"
 import { carregarCardTurma } from "./class.js"
+import { carregarCardDisciplina } from "./discipline.js"
+import { carregarAluno } from "./student.js"
+// import { carregarCardTarefa } from "./tasks.js"
 
 const routes = {
     '/main' : '/pages/main.html',
@@ -23,13 +26,18 @@ const route = async () => {
 
     const response = await fetch(routes[path])
     const html = await response.text()
-
     document.getElementById('root').innerHTML = html
 
     if (window.location.pathname == '/course') {
         carregarCardCurso()
-    } else if (window.location.pathname == '/task') {
+    } else if (window.location.pathname == '/class') {
         carregarCardTurma()
+    } else if (window.location.pathname == '/discipline') {
+        carregarCardDisciplina()
+    } else if (window.location.pathname == '/student') {
+        carregarAluno()
+    // } else if (window.location.pathname == '/task') {
+    //     carregarCardTarefa()
     }
 }
 

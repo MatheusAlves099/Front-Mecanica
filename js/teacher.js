@@ -1,7 +1,7 @@
 'use strict'
 
-import { preencherDadosProfessor } from "./api.js"
-const professores = await preencherDadosProfessor()
+import { preencherDadosProfessores } from "./api.js"
+const professores = await preencherDadosProfessores()
 
 const criarProfessor = (professor) => {
 

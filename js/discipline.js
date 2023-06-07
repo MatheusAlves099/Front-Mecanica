@@ -1,19 +1,22 @@
 'use strict'
 
-import { preencherDadosTurmas } from "./api.js"
-const turmas = await preencherDadosTurmas()
+import { preencherDadosDisciplinas } from "./api.js"
+const disciplinas = await preencherDadosDisciplinas()
 
-const criarCardTurma = (turma) => {
+const criarCardDisciplina = (disciplina) => {
 
     const card = document.createElement('div')
     card.classList.add('card')
 
     const topContainer = document.createElement('a')
     topContainer.classList.add('top-container')
-    topContainer.setAttribute('href', '/discipline')
-    topContainer.textContent = turma.sigla
-    topContainer.title = turma.nome
+    topContainer.setAttribute('href', '/student')
+    topContainer.textContent = disciplina.sigla
+    topContainer.title = disciplina.nome
     topContainer.onclick = route
+    topContainer.addEventListener('click', () => {
+        localStorage.setItem('disciplina', disciplina.nome.textContent)
+    })
 
     const bottomContainer = document.createElement('div')
     bottomContainer.classList.add('bottom-container')
@@ -22,8 +25,8 @@ const criarCardTurma = (turma) => {
     buttonEdit.classList.add('button-edit')
 
     const imgEdit = document.createElement('img')
-    imgEdit.classList.add('img-edit')
     imgEdit.src = '../img/button_edit.png'
+    imgEdit.classList.add('img-edit')
 
     const buttonDelete = document.createElement('div')
     buttonDelete.classList.add('button-delete')
@@ -41,8 +44,8 @@ const criarCardTurma = (turma) => {
 
 }
 
-export const carregarCardTurma = () => {
-    const container = document.getElementById('cards-container-class')
-    const cards = turmas.map(criarCardTurma)
+export const carregarCardDisciplina = () => {
+    const container = document.getElementById('cards-container-discipline')
+    const cards = disciplinas.map(criarCardDisciplina)
     container.replaceChildren(...cards)
 }
